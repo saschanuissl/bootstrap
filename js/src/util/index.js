@@ -173,7 +173,7 @@ const reflow = element => element.offsetHeight
 const getjQuery = () => {
   const { jQuery } = window
 
-  if (jQuery && !document.body.hasAttribute('data-no-jquery')) {
+  if (jQuery && !window.nojQuery) {
     return jQuery
   }
 

@@ -380,13 +380,13 @@ describe('Util', () => {
       expect(Util.getjQuery()).toEqual(fakejQuery)
     })
 
-    it('should not return jQuery object when present if data-no-jquery', () => {
-      document.body.setAttribute('data-no-jquery', '')
+    it('should not return jQuery object when present if window.nojQuery', () => {
+      window.nojQuery = true
 
       expect(window.jQuery).toEqual(fakejQuery)
       expect(Util.getjQuery()).toEqual(null)
 
-      document.body.removeAttribute('data-no-jquery')
+      window.nojQuery = undefined
     })
 
     it('should not return jQuery if not present', () => {
